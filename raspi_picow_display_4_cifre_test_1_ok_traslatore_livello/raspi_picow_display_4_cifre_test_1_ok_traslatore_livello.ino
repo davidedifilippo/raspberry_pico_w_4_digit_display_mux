@@ -8,15 +8,10 @@ const int pinC = 4;
 const int pinB = 3;
 const int pinA = 2;
 
-
-
-
 // pin 4 -> GP2  -> A  LSB
 // pin 5 -> GP3  -> B
 // pin 6 -> GP4  -> C
 // pin 7 -> GP5  -> D  MSB
-
-
 
 int count = 1000;
 
@@ -35,6 +30,8 @@ unsigned long dt, t1;
 
 void loop() {
 
+  //Le cifre vengono accese ogni 6 millisecondi 
+
   displayDigit(1, (c%10));
   delay(2);
   displayDigit(2, ((c/10)%10));
@@ -44,11 +41,11 @@ void loop() {
   displayDigit(4, ((c/1000)%10));
   delay(2);
   
+  //Il conteggio viene aggiornato ogni 200 millisecondi
   dt = millis() - t1;
   if (dt >= 200) {
-  c++;
-  t1 = millis();
-    
+   c++;
+   t1 = millis();   
   } 
 }
 
